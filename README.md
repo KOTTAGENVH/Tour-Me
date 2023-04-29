@@ -5,7 +5,31 @@ Batch: Y3S1_WE_SE_0101
 
 Sri Lanka Institue Of Technology
 
-Member 1 IT21005862 Ruwanara H D C
-Member 2 IT21013300 Kottage N V H
-Member 3 IT21021916 Panditharathne P D R L
-Member 4 IT21073946 Jayasena AK B D
+
+<table>
+  <caption><h3>Member Details</h3></caption>
+  <thead>
+    <tr>
+      <th>Student ID</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IT21005862</td>
+      <td>Ruwanara H D C</td>
+    </tr>
+    <tr>
+      <td>IT21013300</td>
+      <td>Kottage N V H</td>
+    </tr>
+    <tr>
+      <td>IT21021916</td>
+      <td>Panditharathne P D R L</td>
+    </tr>
+    <tr>
+      <td>IT21073946</td>
+      <td>Jayasena AK B D</td>
+    </tr>
+  </tbody>
+</table>
