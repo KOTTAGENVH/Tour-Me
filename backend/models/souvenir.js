@@ -27,8 +27,7 @@ const souvenirschema = new Schema({
     },
     Image: {
         type: String,
-        required: true
-    }
+    },
 })
 
 const souvenir = mongoose.model("souvenirs", souvenirschema);

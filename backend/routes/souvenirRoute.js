@@ -2,18 +2,48 @@
 const router = require("express").Router();
 const Souvenir = require("../models/souvenir");
 
-//create product
-router.post('/addItem', async(req, res)=> {
-    try {
-      const {ItemName,Description,Price,Category,Stocks,Image} = req.body;
-      const souvenir = await Souvenir.create({ItemName,Description,Price,Category,Stocks,Image});
-      console.log(souvenir);
-      res.json("Item Added");
-      const souvenirs = await Souvenir.find();
-      res.status(201).json(souvenirs);
-    } catch (e) {
-      res.status(400).send(e.message);
-    }
+//add item
+router.route("/itemadd").post((req,res)=>{
+
+  const ItemName = req.body.ItemName;
+  const Description = req.body.Description;
+  const Price = req.body.Price;
+  const Category = req.body.Category;
+  const Stocks = req.body.Stocks;
+  const Image = req.body.Image;
+
+  const newSouvenir = new Souvenir({
+      ItemName,
+      Description,
+      Price,
+      Category,
+      Stocks,
+      Image
   })
 
-  module.exports = router;
+  newSouvenir.save().then(()=>{
+      res.json("Souvenir Added")
+  }).catch((err)=>{
+      console.log(err);
+  })
+})
+
+router.route("/allitems").get((req,res)=>{
+  Souvenir.find().then((souvenirs)=>{
+      res.json(souvenirs)
+  }).catch((err)=>{
+      console.log(err);
+  })
+})
+
+router.route("/getCategories").get(async(req,res) =>{
+  const categories = await Souvenir.find().distinct('Category')
+  .then((categories) => {
+      res.status(200).send({status: "Items fetched", categories});
+  }).catch((err) =>{
+      console.log(err.message);
+      res.status(500).send({status: "Error with get categories", error: err.message});
+  })
+})
+
+module.exports = router;
