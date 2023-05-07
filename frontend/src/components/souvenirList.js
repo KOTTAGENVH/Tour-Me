@@ -21,20 +21,9 @@ function ItemGridView() {
     }, [])
 
     function getitems(e) {
-        if(param==="all items"){
-            getAll();
-        }
         e.preventDefault();
         axios.get(`http://localhost:8070/souvenir/getitembycategory/${param}`).then(res => {
             setitems(res.data.souvenirs)
-        }).catch((err) => {
-            alert(err.message)
-        })
-    }
-
-    function getAll() {
-        axios.get("http://localhost:8070/souvenir/allitems").then((res) => {
-            setitems(res.data);
         }).catch((err) => {
             alert(err.message)
         })
@@ -51,12 +40,21 @@ function ItemGridView() {
         getSouvenirs();
     }, [])
 
+    async function deleteitem(id) {
+        await fetch(`http://localhost:8070/souvenir/deleteitem/${id}`, {
+            method: "DELETE",
+        });
+    
+        const newdata = items.filter((el) => el._id !== id);
+        setitems(newdata)
+    }
+
     return (
         <div>
             <form onSubmit={getitems} className="search-bar">
                 <label htmlFor="search-option" className="option-label">Search By Category:</label>
                 <select id="search-option" onChange={(e) => { setparam(e.target.value) }} className="option-select">
-                    <option value="all items">All Items</option>
+                    <option value="">Select a Category</option>
                     {categorylist && categorylist.map((category, key) => (
                         <option key={key}>{category}</option>
                     ))}
@@ -70,7 +68,8 @@ function ItemGridView() {
                         <img src={item.Image} alt={item.ItemName} className="item-image" />
                         <h3 className="item-name">{item.ItemName}</h3>
                         <p className="item-price">${item.Price}</p>
-                        <button className="add-to-cart-button">Add to Cart</button>
+                        <button className="add-to-cart-button" style={{ backgroundColor: '#97FFFF' }}><a href={'/edititem/' + item._id}>Edit</a></button><br/>
+                        <button className="add-to-cart-button" onClick={() => { deleteitem(item._id); }}>Delete</button>
                     </div>
                 ))}
             </div>
