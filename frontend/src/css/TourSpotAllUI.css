@@ -1,0 +1,15 @@
+/* DestinationNowen.css */
+
+.tourspot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20;
+
+  }
+  
+  .table-row-data {
+    padding: 10px; /* Add padding around the table data */
+  }
+
+
