@@ -6,7 +6,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import { useNavigate } from "react-router-dom";
-import "../CSS/Tourspothome.css";
+import "../css/Tourspothome.css";
 import Carousel from 'react-bootstrap/Carousel';
 
 //IT21013300
