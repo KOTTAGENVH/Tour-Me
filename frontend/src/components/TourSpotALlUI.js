@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { Avatar, Box, Card, CardContent, CardHeader, CardMedia, Grid, IconButton, Typography} from "@mui/material";
 import { Button, Modal } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import "../CSS/TourSpotAllUI.css";
+import "../css/TourSpotAllUI.css";
 
 const DestinationNowen = ({
   id,

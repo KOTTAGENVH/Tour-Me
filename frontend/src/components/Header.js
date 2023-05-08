@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
 import { Navbar, Button, Nav, NavDropdown, Container } from "react-bootstrap";
-import "../CSS/Navigation.css";
+import "../css/Navigation.css";
 import { LinkContainer } from "react-router-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { logout} from "../features/userSlice";
