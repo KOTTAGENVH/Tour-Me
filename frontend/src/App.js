@@ -8,7 +8,6 @@ import Seller from './pages/SellerDuvidu';
 import Hotel from './pages/Hotel';
 import Travel from  './pages/TravelBimsara';
 import Usertypes from './pages/Usertypes';
-import './App.css';
 import AddTourspot from './pages/Addtourspot';
 import Onetourspot from './pages/OneTourSpotView';
 import 'bootstrap/dist/css/bootstrap.min.css';
