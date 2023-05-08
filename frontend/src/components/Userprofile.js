@@ -4,7 +4,7 @@ import { Container, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import Loading from "../components/Loading";
-import "../CSS/Profile.css";
+import "../css/Profile.css";
 import Box from "@mui/material/Box";
 import EmailIcon from '@mui/icons-material/Email';
 import { Avatar } from "@mui/material";
