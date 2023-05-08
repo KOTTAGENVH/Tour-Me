@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import '../CSS/Addtourspot.css'
+import '../css/Addtourspot.css'
 
 //IT21013300
 
