@@ -8,7 +8,7 @@ import axios from 'axios';
 import Loading from '../components/Loading';
 import { LinkContainer } from 'react-router-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
-import '../CSS/OneTourSpotView.css';
+import '../css/OneTourSpotView.css';
 
 
 function OneTourSpotView(props) {
