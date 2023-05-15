@@ -16,6 +16,7 @@ import Checkout from './pages/tourspotCheckout';
 import AdminDashboard from './pages/AdminDashboard';
 import Userdashboard from './pages/Userdashboard';
 import Onlydestcomp from './pages/TourSpotRetDBone';
+import ViewSouvenier from './components/viewSouvenir'
 function App() {
   const user = useSelector((state) => state.user);
   return (
@@ -77,6 +78,7 @@ function App() {
 <Route path="/viewtourspot/:id" element={<Onetourspot />} />
 <Route path="/dest" element={<Destination />} />
 <Route path="/tourspotcart/:id" element={<Checkout/>}/>
+<Route path="/viewSouvenier" element={<ViewSouvenier/>}/>
 
       </Routes>
       </BrowserRouter>
