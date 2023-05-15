@@ -69,7 +69,7 @@ function Navigation() {
                  </>
                 ) : user.isDest ? (
                  <>
-                    <LinkContainer to="/userdash">
+                    <LinkContainer to="/destdash">
                  <NavDropdown.Item>Your Dashboard</NavDropdown.Item>
                 </LinkContainer>
              <LinkContainer to="/dest">

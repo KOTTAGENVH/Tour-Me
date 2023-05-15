@@ -17,6 +17,8 @@ import AdminDashboard from './pages/AdminDashboard';
 import Userdashboard from './pages/Userdashboard';
 import Onlydestcomp from './pages/TourSpotRetDBone';
 import ViewSouvenier from './components/viewSouvenir'
+import Destdashboard from './pages/DestDashboard';
+
 function App() {
   const user = useSelector((state) => state.user);
   return (
@@ -49,6 +51,7 @@ function App() {
 
       <Route path="/onlydestcomp" element={<Onlydestcomp />} />
       <Route path="/addest" element={<AddTourspot />} />
+      <Route path="/destdash" element={<Destdashboard />} />
                         </>
 )}
 
@@ -66,6 +69,7 @@ function App() {
 {user && user.isSeller && (
   <>
       <Route path="/sel" element={<Seller />} />
+  
     
   </>
 )}

@@ -83,7 +83,7 @@ const DestinationNowen = ({
           sx={{
             maxWidth: 405,
             minHeight: 300,
-            maxHeight: 300,
+            maxHeight: 500,
             minWidth: 1100,
             marginTop: 1,
             marginBottom: 2,
@@ -91,6 +91,7 @@ const DestinationNowen = ({
             marginRight: 5,
             textAlign: "center",
             backgroundColor: "lightgray",
+            borderRadius: 12,
           }}
         >
           <CardHeader
@@ -110,7 +111,7 @@ const DestinationNowen = ({
            <Box display="flex">
            <CardMedia
           component="img"
-          height="200"
+          height="250"
           sx={{ width: 400 }} 
           image={image}
           alt=""
