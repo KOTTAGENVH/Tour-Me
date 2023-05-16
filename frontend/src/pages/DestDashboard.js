@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Nav, Tab, Col, Row } from "react-bootstrap";
 import Bookingtourspot from "../components/Retrieveallbooktourspot";
 import UserProfile from "../components/Userprofile";
+import Retrieveallbookingsfordest from '../components/Retrievebookingsfordest';
 function Sellerdashboard() {
   return (
     <Container>
@@ -31,7 +32,7 @@ function Sellerdashboard() {
                    <Bookingtourspot/>
                     </Tab.Pane>
                     <Tab.Pane eventKey="tourspotbooks">
-                   <Bookingtourspot/>
+                   <Retrieveallbookingsfordest/>
                     </Tab.Pane>
                  
                 </Tab.Content>

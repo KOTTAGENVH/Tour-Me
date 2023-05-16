@@ -18,6 +18,7 @@ import Userdashboard from './pages/Userdashboard';
 import Onlydestcomp from './pages/TourSpotRetDBone';
 import ViewSouvenier from './components/viewSouvenir'
 import Destdashboard from './pages/DestDashboard';
+import Home from "./pages/Home";
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -83,6 +84,7 @@ function App() {
 <Route path="/dest" element={<Destination />} />
 <Route path="/tourspotcart/:id" element={<Checkout/>}/>
 <Route path="/viewSouvenier" element={<ViewSouvenier/>}/>
+<Route path="/" element={<Home />} />
 
       </Routes>
       </BrowserRouter>

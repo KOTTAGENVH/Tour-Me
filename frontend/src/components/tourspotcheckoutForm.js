@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
+import { useState, useEffect, useRef  } from "react";
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import {Button } from "@mui/material";
@@ -8,9 +9,9 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import TourSpotCheckoutForm  from "./TourSpotstripecardelement";
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import emailjs from '@emailjs/browser';
 
 
 
@@ -51,7 +52,10 @@ export default function AddressForm() {
       Totaltickets: "",
       datebook: "",
       });
-  
+
+
+   
+      
       const handleChange = (e) => {
         const { name, value } = e.target;
         setInputs((prevInputs) => ({
@@ -74,10 +78,15 @@ export default function AddressForm() {
     }
   
       const sendRequest = async () => {
+        let sellerid = tourspot.user._id;
+        let destinationid = sellerid.toString();
+        console.log("destinationid", destinationid);
         try {
           const res = await axios.post("http://localhost:8070/tourspotorder/addtourspotorders", {
             user: user._id,
+            seller: destinationid,
             product: id,
+            useremail: user.email,
             productname: tourspot.title,
             Totaltickets: inputs.Totaltickets,
             total: totals,
@@ -105,9 +114,10 @@ export default function AddressForm() {
     
       const handleSubmit = (e) => {
         e.preventDefault();
-    
+
         sendRequest()
           .then(() => {
+            sendEmail();
             updateNoTickets(); // Update NoTickets value
             alert("Booking Successful");
             navigate("/dest");
@@ -115,6 +125,23 @@ export default function AddressForm() {
           .catch((error) => {
             console.log(error);
             alert("Booking Failed");
+          });
+      };
+
+      const sendEmail = () => {
+        const templateParams = {
+          title: tourspot.title,
+          Totaltickets: inputs.Totaltickets,
+          datebook: inputs.datebook,
+        };
+      
+        emailjs
+          .send('service_f7ci2yh', 'template_q8y8ez8', templateParams, 'p9SlCqOMWrWo5VfMP')
+          .then((response) => {
+            console.log('Email sent successfully:', response.text);
+          })
+          .catch((error) => {
+            console.error('Error sending email:', error.text);
           });
       };
     return (
