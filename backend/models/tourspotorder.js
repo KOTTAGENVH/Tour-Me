@@ -8,12 +8,19 @@ const tourspotorderSchema = new Schema({
     ref: "User",
     required: true,
   },
+  seller: {
+    type: String,
+    required: true,
+  },
     product: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "TourSpot",
     required: true,
   },
-
+  useremail : {
+    type: String,
+    required: true,
+  },
   productname : {
     type: String,
     required: true,

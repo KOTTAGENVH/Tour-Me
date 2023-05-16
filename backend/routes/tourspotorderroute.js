@@ -20,7 +20,7 @@ router.get("/getalltourspotorders", async (req, res) => {
 
 //add tourspots
 router.post("/addtourspotorders", async (req, res) => {
-  const { user, product,productname, status, Totaltickets, total,datebook,} = req.body;
+  const { user,seller, useremail, product,productname, status, Totaltickets, total,datebook,} = req.body;
 
   let existingUser;
   try {
@@ -40,6 +40,8 @@ router.post("/addtourspotorders", async (req, res) => {
 
   const orders = new Orders({
     user,
+    seller,
+    useremail,
     product,
     productname,
     status,
@@ -67,12 +69,14 @@ router.post("/addtourspotorders", async (req, res) => {
 //Update tourspots orders
 router.put("/updateTourSpotorders/:id", async (req, res) => {
   const { id } = req.params;
-  const {user, product, status, Totaltickets, total,datebook,} = req.body;
+  const {user, useremail, product, status, Totaltickets, total,datebook,} = req.body;
   let orders;
   try {
     orders = await Orders.findByIdAndUpdate(id, {
       user,
+      useremail,
       product,
+      seller,
       productname,
       status,
       Totaltickets,
@@ -138,6 +142,21 @@ router.get("/fuser/:id", async (req, res) => {
     return res.status(404).json({ message: "No TourSpot userorders Found" });
   }
   return res.status(200).json({ user: userorders });
+});
+
+router.get("/fdest/:sellerId", async (req, res) => {
+  const sellerId = req.params.sellerId;
+  let sellerOrders;
+  try {
+    sellerOrders = await Orders.find({ seller: { $regex: sellerId, $options: 'i' } });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+  if (sellerOrders.length === 0) {
+    return res.status(404).json({ message: "No orders found for the specified seller" });
+  }
+  return res.status(200).json({ orders: sellerOrders });
 });
 
 

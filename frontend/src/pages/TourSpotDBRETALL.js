@@ -82,7 +82,7 @@ const tourspotsearch = tourspot.filter((tourspots) => tourspots.title.toLowerCas
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://img.traveltriangle.com/blog/wp-content/uploads/2020/02/Places-In-Sri-Lanka_4th-jun.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/8/83/Ampara.jpg"
           alt="Third slide"
         />
 
