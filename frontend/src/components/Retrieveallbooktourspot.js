@@ -80,7 +80,7 @@ function Retrieveallbooktourspot() {
       if (loading) return <Loading />;
     
       if (destcomp.length === 0) {
-        return <h2 className="py-2 text-center">No bookings yet</h2>;
+        return <h2 className="py-2 text-center">No bookings yet<br/><br/><br/><br/><br/></h2>;
       }
       
   return (
@@ -134,6 +134,7 @@ endAdornment: (
              </TableBody>
          </Table>
              </TableContainer>
+             <br/><br/><br/><br/><br/><br/><br/>
     </div>
    )}
 

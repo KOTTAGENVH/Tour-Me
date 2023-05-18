@@ -91,9 +91,9 @@ const fetchDetails = async () => {
      </Carousel.Item>
    </Carousel>
      {tourspot.length === 0 ? (
-       <h1>No tourspot yet</h1>
+       <h1>No tourspot yet<br/></h1>
      ) : tourspotsearch.length === 0 ? (
-       <h1>No tourspot found</h1>
+       <h1>No tourspot found<br/></h1>
      ) : (
        <div className="row">
          {tourspotsearch.map((tourspots, index) => (

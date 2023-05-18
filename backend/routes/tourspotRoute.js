@@ -47,7 +47,7 @@ router.patch("/updateticketcount/:id", async (req, res) => {
 
 //add tourspots
 router.post("/addtourspot", async (req, res) => {
-  const { title, maindescription, description, image, image1, price, NoTickets, Address, Address1, user } = req.body;
+  const { title, maindescription, description, image, image1, price, NoTickets, Address, Address1, user, username, useremail, usertel } = req.body;
 
   let existingUser;
   try {
@@ -76,6 +76,9 @@ router.post("/addtourspot", async (req, res) => {
     Address,
     Address1,
     user,
+    username,
+    useremail,
+    usertel,
   });
 
   try {
@@ -97,7 +100,7 @@ router.post("/addtourspot", async (req, res) => {
 //Update tourspots
 router.put("/updateTourSpot/:id", async (req, res) => {
   const { id } = req.params;
-  const {title,   maindescription, description, image, image1, price, NoTickets, Address, Address1, user} = req.body;
+  const {title,   maindescription, description, image, image1, price, NoTickets, Address, Address1, user, username, useremail, usertel} = req.body;
   let tourspot;
   try {
     tourspot = await TourSpot.findByIdAndUpdate(id, {
@@ -111,6 +114,9 @@ router.put("/updateTourSpot/:id", async (req, res) => {
       Address,
       Address1,
       user,
+      username,
+      useremail,
+      usertel,
     });
   } catch (err) {
     return console.log(err);
@@ -155,6 +161,33 @@ router.get("/getTourSpot/:id", async (req, res) => {
   }
 
   return res.status(200).json({ tourspot });
+});
+
+// Patch route to update the rating of a tour spot
+router.patch('/updaterating/:id', async (req, res) => {
+  const { id } = req.params;
+  const { rating } = req.body;
+
+  try {
+    // Find the tour spot by its ID
+    const tourSpot = await TourSpot.findById(id);
+
+    if (!tourSpot) {
+      return res.status(404).json({ error: 'TourSpot not found' });
+    }
+
+    // Update the rating
+    tourSpot.rating = rating;
+
+    // Save the updated tour spot
+    await tourSpot.save();
+
+    // Return the updated tour spot
+    return res.json({ tourSpot });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Server error' });
+  }
 });
 
 

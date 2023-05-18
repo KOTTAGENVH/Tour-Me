@@ -1,4 +1,4 @@
-
+//IT21013300
 import React from "react";
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
@@ -23,15 +23,10 @@ function Copyright() {
   );
 }
 
-const steps = [ 'Booking Confirmation'];
 
 function getStepContent(step) {
-  switch (step) {
-    case 0:
+  
       return <AddressForm />;
-    default:
-      throw new Error('Unknown step');
-  }
 }
 
 const theme = createTheme();

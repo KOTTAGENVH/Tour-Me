@@ -1,3 +1,4 @@
+//IT21013300
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Table } from "react-bootstrap";
@@ -85,11 +86,12 @@ const handleEdit = () => {
         <Container className="Profile">
                <hr></hr>
                <Box display="flex" justifyContent="center">
-      <Avatar
-        className="avatar"
-        alt={users.name}
-        src={users.image}
-      />
+               <Avatar
+  className="avatar"
+  alt={users.name}
+  src={users.image}
+  sx={{ width: 100, height: 100 }} 
+/>
     </Box>
 
                    <h2> Welcome {users.name} !!!! </h2>

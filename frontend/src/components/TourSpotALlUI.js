@@ -1,3 +1,4 @@
+//IT21013300
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -76,15 +77,19 @@ const DestinationNowen = ({
         .then(() => navigate("/dest"));
         window.location.reload(false);
       };
+      const [isHovered, setIsHovered] = useState(false);
 
+      const handleCardHover = () => {
+        setIsHovered(!isHovered);
+      };
   return (
     <div className="tourspot">
         <Card
           sx={{
-            maxWidth: 405,
-            minHeight: 300,
-            maxHeight: 500,
-            minWidth: 1100,
+            maxWidth: "100%",
+            minHeight: "30%",
+            maxHeight: "100%",
+            minWidth: "75%",
             marginTop: 1,
             marginBottom: 2,
             marginLeft: 5,
@@ -92,7 +97,12 @@ const DestinationNowen = ({
             textAlign: "center",
             backgroundColor: "lightgray",
             borderRadius: 12,
+            transition: 'transform 0.3s',
+            transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+            cursor: 'pointer'
           }}
+          onMouseEnter={handleCardHover}
+          onMouseLeave={handleCardHover}
         >
           <CardHeader
             avatar={

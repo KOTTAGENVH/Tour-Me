@@ -56,6 +56,19 @@ const tourspotSchema = new Schema({
     ref: "User",
     required: true,
   },
+  username: {
+    type: String,
+    required: true,
+  },
+  useremail: {
+    type: String,
+    required: true,
+  },
+  usertel: {
+    type: String,
+    required: true,
+  },
+
 
 });
 

@@ -1,3 +1,4 @@
+//IT21013300
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -93,9 +94,9 @@ const tourspotsearch = tourspot.filter((tourspots) => tourspots.title.toLowerCas
       </Carousel.Item>
     </Carousel>
       {tourspot.length === 0 ? (
-        <h1>No tourspot yet</h1>
+        <h1>No tourspot yet<br/></h1>
       ) : tourspotsearch.length === 0 ? (
-        <h1>No tourspot found</h1>
+        <h1>No tourspot found<br/></h1>
       ) : (
         <div className="row">
           {tourspotsearch.map((tourspots, index) => (
