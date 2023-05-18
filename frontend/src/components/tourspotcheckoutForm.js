@@ -1,3 +1,4 @@
+//IT21013300
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import { useState, useEffect, useRef  } from "react";
@@ -119,6 +120,7 @@ export default function AddressForm() {
           .then(() => {
             sendEmail();
             updateNoTickets(); // Update NoTickets value
+            handlePay();
             alert("Booking Successful");
             navigate("/dest");
           })
@@ -253,9 +255,16 @@ fullWidth
 onChange={handleChange}
 variant="filled"/>
 
-   
-        
         </Grid>
+
+        <br/>
+        
+        <Grid item xs={12}>
+        <Elements stripe={stripePromise}>
+              <TourSpotCheckoutForm />
+         </Elements>
+        </Grid>
+        <br/>
         <Button
             sx={{ mt: 2, borderRadius: 4 }}
             variant="contained"
@@ -267,22 +276,7 @@ variant="filled"/>
           </Button>
         </form>
         <br/>
-        <form onSubmit={handlePay}>
-        <Grid item xs={12}>
-        <Elements stripe={stripePromise}>
-              <TourSpotCheckoutForm />
-         </Elements>
-        </Grid>
-        <Button
-            sx={{ mt: 2, borderRadius: 4 }}
-            variant="contained"
-            color="warning"
-            type="submit" 
-          >
-            {" "}
-            Pay 
-          </Button>
-        </form>
+        
        
       
     </React.Fragment>

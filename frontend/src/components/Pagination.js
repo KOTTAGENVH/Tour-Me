@@ -1,3 +1,4 @@
+//IT21013300
 import { useState } from "react";
 import "../CSS/Pagination.css";
 export default function Pagination({ data, RenderComponent, title, pageLimit, dataLimit, tablePagination }) {

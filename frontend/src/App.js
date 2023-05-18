@@ -19,6 +19,7 @@ import Onlydestcomp from './pages/TourSpotRetDBone';
 import ViewSouvenier from './components/viewSouvenir'
 import Destdashboard from './pages/DestDashboard';
 import Home from "./pages/Home";
+import Footer from './components/Footer';
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -87,6 +88,8 @@ function App() {
 <Route path="/" element={<Home />} />
 
       </Routes>
+      <br/>   <br/>
+      <Footer/>
       </BrowserRouter>
     </div>
   );
