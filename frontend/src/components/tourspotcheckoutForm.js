@@ -74,7 +74,7 @@ export default function AddressForm() {
       };
       
       async function handlePay() {
-        await axios.post('http://localhost:8070/tourspotpayment/addpayment', {amount: totals})
+        await axios.post('https://travel-mate.onrender.com/tourspotpayment/addpayment', {amount: totals})
         navigate("/dest");
     }
   
@@ -83,7 +83,7 @@ export default function AddressForm() {
         let destinationid = sellerid.toString();
         console.log("destinationid", destinationid);
         try {
-          const res = await axios.post("http://localhost:8070/tourspotorder/addtourspotorders", {
+          const res = await axios.post("https://travel-mate.onrender.com/tourspotorder/addtourspotorders", {
             user: user._id,
             seller: destinationid,
             product: id,
@@ -104,7 +104,7 @@ export default function AddressForm() {
       
       const updateNoTickets = async () => {
         try {
-          const response = await axios.patch(`http://localhost:8070/tourspot/updateticketcount/${id}`, {
+          const response = await axios.patch(`https://travel-mate.onrender.com/tourspot/updateticketcount/${id}`, {
             NoTickets: parseInt(tourspot.NoTickets) - parseInt(inputs.Totaltickets),
           });
           console.log(response.data);

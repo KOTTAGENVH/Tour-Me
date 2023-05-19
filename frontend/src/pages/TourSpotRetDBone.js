@@ -24,7 +24,7 @@ const navigate = useNavigate();
 
 const fetchDetails = async () => {
     try {
-      const res = await axios.get(`http://localhost:8070/tourspot/fuser/${userid}`);
+      const res = await axios.get(`https://travel-mate.onrender.com/tourspot/fuser/${userid}`);
       const data = res.data;
       console.log("tour2", data);
       return data;

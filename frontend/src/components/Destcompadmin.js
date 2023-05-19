@@ -25,7 +25,7 @@ const Destcompadmin = () => {
   const user = useSelector((state) => state.user);
 
   const sendRequest = async () => {
-    const res = await axios.get("http://localhost:8070/users/").catch((err) => console.log(err));
+    const res = await axios.get("https://travel-mate.onrender.com/users/").catch((err) => console.log(err));
     const data = await res.data;
     const destUsers = data.filter((users) => users.isDest === true); // Filter users with isDest set to true
     setDestComp(destUsers);
@@ -56,7 +56,7 @@ const Destcompadmin = () => {
         //Reject of destcomp
 const handleReject = async (destcomp) => {
     try {
-      const response = await axios.put(`http://localhost:8070/users/reject/${destcomp._id}`, {
+      const response = await axios.put(`https://travel-mate.onrender.com/users/reject/${destcomp._id}`, {
         isApproved: false
       });
        // Update the destination  state with the updated destcomp object
@@ -69,7 +69,7 @@ const handleReject = async (destcomp) => {
      //Approval of destcomp
      const handleApprove = async (destcomp) => {
         try {
-          const response = await axios.put(`http://localhost:8070/users/approve/${destcomp._id}`, {
+          const response = await axios.put(`https://travel-mate.onrender.com/users/approve/${destcomp._id}`, {
             isApproved: true
           });
           // Update the destcomp state with the updated destcomp object

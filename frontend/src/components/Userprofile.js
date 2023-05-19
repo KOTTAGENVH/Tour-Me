@@ -30,7 +30,7 @@ function Profile () {
 
 //Handle Edit function
 const handleEdit = () => {
-    axios.put(`http://localhost:8070/users/updateusers/${users._id}`, {
+    axios.put(`https://travel-mate.onrender.com/users/updateusers/${users._id}`, {
         name: Name,
         Tel: Tel,
         address: address,
@@ -48,7 +48,7 @@ const handleEdit = () => {
    //Sending the delete request to the backend
    const deleteRequest = async () => {
     const res = await axios
-      .delete(`http://localhost:8070/users/deleteusers/${users._id}`)
+      .delete(`https://travel-mate.onrender.com/users/deleteusers/${users._id}`)
       .catch((err) => console.log(err));
     const data = await res.data;
       return data;
@@ -64,7 +64,7 @@ const handleEdit = () => {
     useEffect(() => {
         setLoading(true);
         axios
-            .get(`http://localhost:8070/users/${users._id}`)
+            .get(`https://travel-mate.onrender.com/users/${users._id}`)
             .then(({ data }) => {
                 setLoading(false);
                 setUsers(data);

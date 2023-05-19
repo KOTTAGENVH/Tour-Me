@@ -22,7 +22,7 @@ function OneTourSpotView(props) {
   
     const fetchDetails = async () => {
       const res = await axios
-        .get(`http://localhost:8070/tourspot/getTourSpot/${id}`)
+        .get(`https://travel-mate.onrender.com/tourspot/getTourSpot/${id}`)
         .catch((err) => console.log(err));
       const data = await res.data;
       console.log('tour2', data);
@@ -35,7 +35,7 @@ function OneTourSpotView(props) {
   
     const updateRating = async (newRating) => {
       try {
-        await axios.patch(`http://localhost:8070/tourspot/updaterating/${id}`, { rating: newRating });
+        await axios.patch(`https://travel-mate.onrender.com/tourspot/updaterating/${id}`, { rating: newRating });
         fetchDetails().then((data) => setTourSpot(data.tourspot));
       } catch (error) {
         console.log(error);

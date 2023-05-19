@@ -72,7 +72,7 @@ const Addtourspot = () => {
   };
 
   const sendRequest = async () => {
-    const res = await axios.post("http://localhost:8070/tourspot/addtourspot", {
+    const res = await axios.post(`https://travel-mate.onrender.com/tourspot/addtourspot`, {
         title: inputs.title,
         maindescription: inputs.maindescription,
         description: inputs.description,
