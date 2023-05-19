@@ -39,7 +39,7 @@ const DestinationNowen = ({
   console.log("username ",username);
   //Handle Edit function
   const handleEdit = () => {
-    axios.put(`http://localhost:8070/tourspot/updateTourSpot/${id}`, {
+    axios.put(`https://travel-mate.onrender.com/tourspot/updateTourSpot/${id}`, {
       title: Title,
       maindescription: mainDescription,
       description: Description,
@@ -64,7 +64,7 @@ const DestinationNowen = ({
     //Sending the delete request to the backend
     const deleteRequest = async () => {
       const res = await axios
-        .delete(`http://localhost:8070/tourspot/deleteTourSpot/${id}`)
+        .delete(`https://travel-mate.onrender.com/tourspot/deleteTourSpot/${id}`)
         .catch((err) => console.log(err));
       const data = await res.data;
         return data;

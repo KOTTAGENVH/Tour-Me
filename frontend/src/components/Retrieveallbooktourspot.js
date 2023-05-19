@@ -27,7 +27,7 @@ function Retrieveallbooktourspot() {
     console.log(id);
 
     const sendRequest = async () => {
-        const res = await axios.get(`http://localhost:8070/tourspotorder/fuser/${id}`)
+        const res = await axios.get(`https://travel-mate.onrender.com/tourspotorder/fuser/${id}`)
         .catch((err) => console.log(err));
         const data = await res.data;
         console.log("order",data)
@@ -47,7 +47,7 @@ function Retrieveallbooktourspot() {
 
       const handleCancel = async (orderId) => {
         try {
-          const response = await axios.delete(`http://localhost:8070/tourspotorder/deleteTourSpot/${orderId}`);
+          const response = await axios.delete(`https://travel-mate.onrender.com/tourspotorder/deleteTourSpot/${orderId}`);
           console.log(response.data.message);
           setDestComp((prevDestComp) =>
             prevDestComp.filter((destcomp) => destcomp._id !== orderId)

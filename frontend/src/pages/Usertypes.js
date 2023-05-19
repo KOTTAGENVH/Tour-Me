@@ -48,7 +48,7 @@ function Usertypes() {
        //Approval of destination
    const handleDestination = async (destinations) => {
     try {
-      const response = await axios.put(`http://localhost:8070/users/approveDest/${user._id}`, {
+      const response = await axios.put(`https://travel-mate.onrender.com/users/approveDest/${user._id}`, {
         isDest: true
       });
       // Update the destinations state with the updated destinations object
@@ -61,7 +61,7 @@ function Usertypes() {
      //Approval of sellers
      const handleseller = async (sellers) => {
         try {
-          const response = await axios.put(`http://localhost:8070/users/approveseller/${user._id}`, {
+          const response = await axios.put(`https://travel-mate.onrender.com/users/approveseller/${user._id}`, {
             isSeller: true
           });
           // Update the sellers state with the updated seller object
@@ -74,7 +74,7 @@ function Usertypes() {
          //Approval of Hotel
    const handleHotel = async (hotels) => {
     try {
-      const response = await axios.put(`http://localhost:8070/users/approvehotel/${user._id}`, {
+      const response = await axios.put(`https://travel-mate.onrender.com/users/approvehotel/${user._id}`, {
         isHotel: true
       });
       // Update the sellers state with the updated seller object
@@ -87,7 +87,7 @@ function Usertypes() {
      //Approval of Travel
      const handleTravel = async (travels) => {
         try {
-          const response = await axios.put(`http://localhost:8070/users/approvetrav/${user._id}`, {
+          const response = await axios.put(`https://travel-mate.onrender.com/users/approvetrav/${user._id}`, {
             isTravel: true
           });
           // Update the sellers state with the updated seller object
