@@ -52,7 +52,8 @@ function ItemGridView() {
     }, [])
 
     return (
-        <div>
+        <div data-testid="viewSouvenir-1">
+            <h2>View Souvenir</h2>
             <form onSubmit={getitems} className="search-bar">
                 <label htmlFor="search-option" className="option-label">Search By Category:</label>
                 <select id="search-option" onChange={(e) => { setparam(e.target.value) }} className="option-select">
@@ -70,7 +71,7 @@ function ItemGridView() {
                         <img src={item.Image} alt={item.ItemName} className="item-image" />
                         <h3 className="item-name">{item.ItemName}</h3>
                         <p className="item-price">${item.Price}</p>
-                        <button className="add-to-cart-button">Add to Cart</button>
+                        <button className="add-to-cart-button" style={{ backgroundColor: '#97FFFF' }}><a href={'/addcart/' + item._id}>Add to Cart</a></button>
                     </div>
                 ))}
             </div>

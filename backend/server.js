@@ -21,6 +21,9 @@ mongoose.connect(URL, {
 const SouvenirRouter = require("./routes/souvenirRoute.js");
 app.use("/souvenir", SouvenirRouter);
 
+const CartRouter = require("./routes/cartRoute.js");
+app.use("/cart", CartRouter);
+
 app.listen(PORT, () => {
     console.log(`Server is up and running on port number: ${PORT}`);
 });

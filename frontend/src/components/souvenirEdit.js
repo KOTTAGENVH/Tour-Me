@@ -77,7 +77,6 @@ function SouvenirEdits(props) {
     }
 
 
-
     return (
         <form onSubmit={sendUpdate} className="item-add-form">
             <center><h2>Update Souvenir Item</h2> </center>

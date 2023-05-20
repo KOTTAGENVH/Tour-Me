@@ -21,9 +21,19 @@ function ItemGridView() {
     }, [])
 
     function getitems(e) {
+        if(param==="all items"){
+            getAll();
+        }
         e.preventDefault();
         axios.get(`http://localhost:8070/souvenir/getitembycategory/${param}`).then(res => {
             setitems(res.data.souvenirs)
+        }).catch((err) => {
+            alert(err.message)
+        })
+    }
+    function getAll() {
+        axios.get("http://localhost:8070/souvenir/allitems").then((res) => {
+            setitems(res.data);
         }).catch((err) => {
             alert(err.message)
         })
@@ -51,10 +61,11 @@ function ItemGridView() {
 
     return (
         <div>
+            <h2>All Souvenirs</h2>
             <form onSubmit={getitems} className="search-bar">
                 <label htmlFor="search-option" className="option-label">Search By Category:</label>
                 <select id="search-option" onChange={(e) => { setparam(e.target.value) }} className="option-select">
-                    <option value="">Select a Category</option>
+                    <option value="all items">All items</option>
                     {categorylist && categorylist.map((category, key) => (
                         <option key={key}>{category}</option>
                     ))}
