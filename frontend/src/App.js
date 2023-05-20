@@ -1,3 +1,12 @@
+
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Addsouvenir from './components/addSouvenir';
+import ViewSouvenir from './components/viewSouvenir';
+import SouvenirList from './components/souvenirList';
+import Edititem from './components/souvenirEdit';
+import Addcart from './components/addCart';
+import ViewCart from './components/CartView';
+import Thanks from './components/thankyouPurchase';
 import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
 import Signup from './pages/Signup';
@@ -21,9 +30,22 @@ import Destdashboard from './pages/DestDashboard';
 import Home from "./pages/Home";
 import Footer from './components/Footer';
 
+
 function App() {
   const user = useSelector((state) => state.user);
   return (
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/addSouvenir" element={<Addsouvenir />} />
+          <Route path="/viewSouvenir" element={<ViewSouvenir />} />
+          <Route path="/edititem/:id" element={<Edititem />} />
+          <Route path="/souvenirlist" element={<SouvenirList />} />
+          <Route path="/addcart/:id" element={<Addcart />} />
+          <Route path="/viewCart" element={<ViewCart />} />
+          <Route path="/thanks" element={<Thanks />} />
+        </Routes>
+
     <div className="App">
            <BrowserRouter>
            <ScrollToTop/>

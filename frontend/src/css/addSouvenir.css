@@ -6,6 +6,7 @@
     padding: 20px;
     background-color: #f2f2f2;
     border-radius: 5px;
+    fontFamily: "Century Gothic";
   }
   
   .item-add-form label {
@@ -24,8 +25,10 @@
   
   .item-add-form button {
     padding: 10px;
+    font-size: 12px;
   } 
   
   .item-add-form button.hover {
     background-color: ##7DB5B5;
+    font-size: 16px;
   }

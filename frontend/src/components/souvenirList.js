@@ -31,7 +31,6 @@ function ItemGridView() {
             alert(err.message)
         })
     }
-
     function getAll() {
         axios.get("http://localhost:8070/souvenir/allitems").then((res) => {
             setitems(res.data);
@@ -42,7 +41,7 @@ function ItemGridView() {
 
     useEffect(() => {
         function getSouvenirs() {
-            axios.get("https://travel-mate.onrender.com/souvenir/allitems").then((res) => {
+            axios.get("http://localhost:8070/souvenir/allitems").then((res) => {
                 setitems(res.data);
             }).catch((err) => {
                 alert(err.message)
@@ -51,13 +50,22 @@ function ItemGridView() {
         getSouvenirs();
     }, [])
 
+    async function deleteitem(id) {
+        await fetch(`http://localhost:8070/souvenir/deleteitem/${id}`, {
+            method: "DELETE",
+        });
+    
+        const newdata = items.filter((el) => el._id !== id);
+        setitems(newdata)
+    }
+
     return (
-        <div data-testid="viewSouvenir-1">
-            <h2>View Souvenir</h2>
+        <div>
+            <h2>All Souvenirs</h2>
             <form onSubmit={getitems} className="search-bar">
                 <label htmlFor="search-option" className="option-label">Search By Category:</label>
                 <select id="search-option" onChange={(e) => { setparam(e.target.value) }} className="option-select">
-                    <option value="all items">All Items</option>
+                    <option value="all items">All items</option>
                     {categorylist && categorylist.map((category, key) => (
                         <option key={key}>{category}</option>
                     ))}
@@ -71,7 +79,8 @@ function ItemGridView() {
                         <img src={item.Image} alt={item.ItemName} className="item-image" />
                         <h3 className="item-name">{item.ItemName}</h3>
                         <p className="item-price">${item.Price}</p>
-                        <button className="add-to-cart-button" style={{ backgroundColor: '#97FFFF' }}><a href={'/addcart/' + item._id}>Add to Cart</a></button>
+                        <button className="add-to-cart-button" style={{ backgroundColor: '#97FFFF' }}><a href={'/edititem/' + item._id}>Edit</a></button><br/>
+                        <button className="add-to-cart-button" onClick={() => { deleteitem(item._id); }}>Delete</button>
                     </div>
                 ))}
             </div>

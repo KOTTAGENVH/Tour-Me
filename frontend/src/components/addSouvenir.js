@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import axios from "axios";
 import '../css/addSouvenir.css';
 
@@ -56,6 +56,7 @@ export default function SouvenirAdd() {
 
   return (
     <form onSubmit={Addsouvenir} className="item-add-form">
+      <center><h2>Add New Souvenir Item</h2> </center>
       <label htmlFor="item-name">Item Name</label>
       <input
         type="text"

@@ -1,30 +1,43 @@
-import React, { useState, useEffect } from "react"
-import axios from "axios";
-import '../css/searchbar.css';
+// import React, { useState, useEffect } from "react"
+// import axios from "axios";
+// import '../css/searchbar.css';
 
-export default function SearchBar (){
-  const [selectedOption, setSelectedOption] = useState('all');
+// export default function SearchBar (){
 
-  const handleOptionSelect = (event) => {
-    setSelectedOption(event.target.value);
-  };
+//     const [param, setparam] = useState([])
+//     const [categorylist, setcategorylist] = useState([])
+//   const [selectedOption, setSelectedOption] = useState('all');
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    //console.log(`Search text: ${searchText}, Selected option: ${selectedOption}`);
-    // You can add your search functionality or API call here
-  };
+//   useEffect(() => {
+//     function getcategories() {
+//         axios.get("http://localhost:8070/souvenir/getCategories").then((res) => {
+//             setcategorylist(res.data);
+//         }).catch((err) => {
+//             alert(err.message)
+//         })
+//     }
+//     getcategories();
+// }, [])
 
-  return (
-    <form onSubmit={handleFormSubmit} className="search-bar">
-      <label htmlFor="search-option" className="option-label">Search Category:</label>
-      <select id="search-option" value={selectedOption} onChange={handleOptionSelect} className="option-select">
-        <option value="all">All</option>
-        <option value="title">Title</option>
-        <option value="description">Description</option>
-        <option value="tags">Tags</option>
-      </select>
-      <button type="submit" className="search-button">Search</button>
-    </form>
-  );
-};
+
+// function getitems(e) {
+//     e.preventDefault();
+//     axios.get(`http://localhost:8070/item/getitembybrand/${param}`).then(res => {
+//         setitems(res.data.items)
+//     }).catch((err) => {
+//         alert(err.message)
+//     })
+// }
+//   return (
+//     <form onSubmit={getitems} className="search-bar">
+//       <label htmlFor="search-option" className="option-label">Search Category:</label>
+//           <select id="search-option" value={selectedOption} onChange={(e) => { setparam(e.target.value) }} className="option-select">
+//               <option value="">Select a Category</option>
+//               {categorylist && categorylist.map((category, key) => (
+//                   <option key={key}>{category.categoryName}</option>
+//               ))}
+//           </select>
+//       <button type="submit" className="search-button">Search</button>
+//     </form>
+//   );
+// };
