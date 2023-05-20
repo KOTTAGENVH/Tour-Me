@@ -29,7 +29,7 @@ Sri Lanka Institue Of Technology
     </tr>
     <tr>
       <td>IT21073946</td>
-      <td>Jayasena AK B D</td>
+      <td>Jayasena A K B D</td>
     </tr>
   </tbody>
 </table>
