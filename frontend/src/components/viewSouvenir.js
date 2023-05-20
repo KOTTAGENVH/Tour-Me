@@ -42,7 +42,7 @@ function ItemGridView() {
 
     useEffect(() => {
         function getSouvenirs() {
-            axios.get("http://localhost:8070/souvenir/allitems").then((res) => {
+            axios.get("https://travel-mate.onrender.com/souvenir/allitems").then((res) => {
                 setitems(res.data);
             }).catch((err) => {
                 alert(err.message)

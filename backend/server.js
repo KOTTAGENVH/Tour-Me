@@ -19,7 +19,15 @@ mongoose.connect(URL, {
 });
 
 const SouvenirRouter = require("./routes/souvenirRoute.js");
+const UserRouter = require("./routes/UserRoutes.js");
+const tourspotRoute = require("./routes/tourspotRoute.js");
+const tourspotorderRoute = require("./routes/tourspotorderroute.js");
+const tourspotpayment = require("./routes/tourspotpaymentRoute.js");
 app.use("/souvenir", SouvenirRouter);
+app.use("/users", UserRouter);
+app.use("/tourspot", tourspotRoute);
+app.use("/tourspotorder", tourspotorderRoute);
+app.use("/tourspotpayment", tourspotpayment);
 
 const CartRouter = require("./routes/cartRoute.js");
 app.use("/cart", CartRouter);

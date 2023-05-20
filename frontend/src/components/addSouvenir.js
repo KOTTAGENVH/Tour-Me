@@ -47,7 +47,7 @@ export default function SouvenirAdd() {
         Image
     }
 
-    axios.post('http://localhost:8070/souvenir/itemadd', newItem).then(() => {
+    axios.post('https://travel-mate.onrender.com/souvenir/itemadd', newItem).then(() => {
         alert("Souvenir added successfully");
     }).catch((err) => {
         alert(err)
