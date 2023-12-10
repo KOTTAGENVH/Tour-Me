@@ -20,7 +20,6 @@ import Usertypes from './pages/Usertypes';
 import AddTourspot from './pages/Addtourspot';
 import Onetourspot from './pages/OneTourSpotView';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Checkout from './pages/tourspotCheckout';
 import AdminDashboard from './pages/AdminDashboard';
 import Userdashboard from './pages/Userdashboard';
@@ -34,17 +33,7 @@ import Footer from './components/Footer';
 function App() {
   const user = useSelector((state) => state.user);
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/addSouvenir" element={<Addsouvenir />} />
-          <Route path="/viewSouvenir" element={<ViewSouvenir />} />
-          <Route path="/edititem/:id" element={<Edititem />} />
-          <Route path="/souvenirlist" element={<SouvenirList />} />
-          <Route path="/addcart/:id" element={<Addcart />} />
-          <Route path="/viewCart" element={<ViewCart />} />
-          <Route path="/thanks" element={<Thanks />} />
-        </Routes>
+
 
     <div className="App">
            <BrowserRouter>

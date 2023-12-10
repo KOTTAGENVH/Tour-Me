@@ -19,6 +19,7 @@ const ShoppingCart = () => {
 
     function getitems(e) {
         e.preventDefault();
+        // eslint-disable-next-line no-undef
         axios.get(`http://localhost:8070/cart/getitembytelephone/${param}`).then(res => {
             setCartItems(res.data.items)
         }).catch((err) => {
@@ -40,6 +41,7 @@ const ShoppingCart = () => {
                     type="text"
                     id="price"
                     name="price"
+                    // eslint-disable-next-line no-undef
                     value={UnitPrice}
                     onChange={handleTelehoneChange}
                     readOnly
