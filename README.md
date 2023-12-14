@@ -1,5 +1,7 @@
 # Tour Me(WEB)
 >Tourism and Culture Management System Developed Using MERN Stack.
+>Technologies used – React.JS, Node.JS, Express,
+Mongo DB, Bootstrap, Material UI and CSS
 >>URL:
 >>>Start Up Commands: Frontend:() Backend:()
 
